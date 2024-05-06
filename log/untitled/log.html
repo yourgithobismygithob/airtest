@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>Airtest Report </title>
+    
+    <!--[if lt IE 9]>
+    <script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/css/report.css" rel="stylesheet">
+
+    <script src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/js/jquery-1.10.2.min.js"></script>
+    <script src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/js/jquery-lang.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/js/langpack/zh_CN.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/js/lazyload.js" charset="utf-8" type="text/javascript"></script>
+    <script type="text/javascript">
+      data = {"steps": [{"title": "Connect device", "time": 1715011423.077641, "code": {"name": "connect_device", "args": [{"key": "uri", "value": "android://127.0.0.1:5037/NDF0217B10002156?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH"}]}, "screen": null, "desc": "\u8fde\u63a5\u8bbe\u5907\uff1a android://127.0.0.1:5037/NDF0217B10002156?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH", "traceback": "Traceback (most recent call last):\n  File \"/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/core/android/adb.py\", line 340, in wait_for_device\n    self.cmd(\"wait-for-device\", timeout=timeout)\n  File \"/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/core/android/adb.py\", line 220, in cmd\n    stdout, stderr = proc_communicate_timeout(proc, timeout)\n  File \"/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/utils/compat.py\", line 79, in proc_communicate_timeout\n    raise_from(exp, None)\n  File \"{string}\", line 3, in raise_from\nRuntimeError: Command ['/Applications/AirtestIDE.app/Contents/MacOS/airtest/core/android/static/adb/mac/adb', '-P', '5037', '-s', 'NDF0217B10002156', 'wait-for-device'] timed out after 5 seconds: stdout['b'''], stderr['b''']\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/utils/logwraper.py\", line 131, in wrapper\n    res = f(*args, **kwargs)\n  File \"/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/core/api.py\", line 74, in connect_device\n    dev = init_device(platform, uuid, **params)\n  File \"/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/core/api.py\", line 42, in init_device\n    dev = cls(uuid, **kwargs)\n  File \"/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/core/android/android.py\", line 59, in __init__\n    self.adb.wait_for_device()\n  File \"/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/core/android/adb.py\", line 342, in wait_for_device\n    raisefrom(DeviceConnectionError, \"device not ready\", e)\n  File \"/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/utils/compat.py\", line 55, in raisefrom\n    raise_from(exc_type(message), exc)\n  File \"{string}\", line 3, in raise_from\nairtest.core.error.DeviceConnectionError: 'device not ready'\n", "log": "", "assert": null}], "name": "/Users/luodan/program/airtest/case/untitled.air", "scale": 0.5, "test_result": false, "run_end": 1715011423.077641, "run_start": 1715011418.046613, "static_root": "/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/", "lang": "zh", "records": [], "info": {"name": "untitled.air", "path": "/Users/luodan/program/airtest/case/untitled.air/untitled.py", "author": "luodan", "title": "", "desc": "", "devices": {"NDF0217B10002156": "android://127.0.0.1:5037/NDF0217B10002156?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH"}}, "log": "log.txt", "console": ""};
+      lang = new Lang();
+      lang.init({
+        defaultLang: 'en',
+        currentLang: 'zh'
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div id="main" class="main col-md-12">
+          <div id="back_multi"></div>
+          <h1 class="title">Airtest Report </h1>
+          
+          <div class="summary" >
+
+            <div class="show-horizontal">
+              <div class="info info1">
+                <div class="info-left">
+                  <img id='result-img' />
+                </div>
+                <div class="info-right">
+                  <div class="info-title"><span lang='en'>Airtest Report</span>
+                    <label id='result-desc' lang="en"></label>
+                  </div>
+                  <div class="info-content">
+                    <div class='info-sub start'></div>
+                    <div class='info-sub time'></div>
+                  </div>
+                  <div class="info-toal">
+                    <div class="info-step">
+                      <span class="info-name" lang="en">Steps: </span>
+                      <span class="info-value">1</span>
+                    </div>
+                    <div class="info-time">
+                      <span class="info-name" lang="en">Time: </span>
+                      <span class="info-value duration">xxx</span>
+                    </div>
+                    
+                    
+                    <div class="info-log">
+                      <span class="info-name" lang="en">Log: </span>
+                      <span class="info-value log">
+                        <a href="log.txt" target="_blank" download="log.txt">log.txt <img src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/download_log.svg" /></a>
+                      </span>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="info info2">
+                <div class="info-left"></div>
+                <div class="info-right">
+                  <div class="info-title"><span lang='en'>Executors</span></div>
+                  <div class="info-content">
+                    <div class="info-execute">
+                      <div class="circle-img"></div>
+                      
+                        <div class="info-name"><span lang="en">Author:</span> luodan</div>
+                      
+                    </div>
+                    <div class="info-execute">
+                      <div class="circle-img"></div>
+                      <div class="info-file" title="/Users/luodan/program/airtest/case/untitled.air/untitled.py">untitled.air
+                        <img id="copy_path" class="copy-img" data-value="/Users/luodan/program/airtest/case/untitled.air/untitled.py" title="copy file path to clipboard" src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/copy.svg" />
+                      </div>
+                    </div>
+
+                    
+                    <div class="info-execute">
+                      <div class="circle-img"></div>
+                      
+                      <div class="info-file" title="android://127.0.0.1:5037/NDF0217B10002156?cap_method=JAVACAP&amp;&amp;ori_method=MINICAPORI&amp;&amp;touch_method=MINITOUCH"><span lang="en">Device: </span> NDF0217B10002156
+                        <img class="copy-img" title="copy file path to clipboard" src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/copy.svg" data-value="android://127.0.0.1:5037/NDF0217B10002156?cap_method=JAVACAP&amp;&amp;ori_method=MINICAPORI&amp;&amp;touch_method=MINITOUCH"/>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          <div class="device" id='device'>
+          </div>
+          <!-- 可以额外显示自定义模块，支持插入Html内容 -->
+          
+          <div class="gallery">
+            <div class="info-title"><span lang="en">Quick view</span></div>
+            <div class ='placeholder'>
+              <div class="content">
+              </div>
+            </div>
+          </div>
+
+          <!--单步-->
+          
+          
+          <div class="steps">
+            <div class="content">
+              <div class="steps-head">
+                <div class="head-left">
+                  <div class="order" id='order'><span lang="en">order</span></div>
+                  <div class="order" id='duration'><span lang="en">duration</span></div>
+                  <div class="order" id='status'><span lang="en">status</span></div>
+                </div>
+                <div class="head-right">
+                  <span lang="en" class="jump-wrong" id='jump-wrong'>Jump to wrong step</span>
+                  <span lang="en">Filter by:</span>
+                  <span class="filters">
+                    <span lang="en" class="filter" id="all" alt="show all steps">All</span>
+                    <span lang="en" class="filter" id='success' alt="show success steps only">Success</span>
+                    <span lang="en" class="filter" id='fail' alt="show failed steps only">Failed</span>
+                    <span lang="en" class="filter" id="assert" alt="show steps with assertion only">Assert</span>
+                  </span>
+                </div>
+              </div>
+              <div class="steps-content">
+                <div class="step-left" id='step-left'>
+                  <div class="step-list"></div>
+                  <div id="pageTool"></div>
+                </div>
+                <div class="step-right" id='step-right'></div>
+              </div>
+            </div>
+            
+            </div>
+        </div>
+        
+      
+      <div class="footer">
+        <div class="footer-content">
+          <div class="foo">
+            <div class="interfaces">
+              <a class="icon" href="https://github.com/AirtestProject/Airtest"  target="_blank">
+                <img src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/Airtest.png" alt="airtest">
+              </a>
+              <a class="icon" href="https://github.com/AirtestProject/poco"  target="_blank">
+                <img src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/poco.png" alt="Poco">
+              </a>
+            </div>
+          </div>
+          <div class="foo">
+            <div class="apps">
+              <a class="icon ide" href="http://airtest.netease.com/"  target="_blank">
+                <img src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/AirtestIDE.png" alt="AirtestIDE">
+              </a>
+              <a class="icon" href="https://airlab.163.com/"  target="_blank">
+                <img src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/AirLab.png" alt="AirLab">
+              </a>
+            </div>
+          </div>
+          <div class="foo">
+            <div class="corp">
+                <img src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/netease.png" alt="NetEase">
+                <span lang="en">© 1997 - 2020 NetEase, Inc. All Rights Reserved.</span>
+            </div>
+          </div>
+        </div>
+      </div> 
+      
+      </div>
+      <!-- 录屏 -->
+      <div class="row gif-wrap show">
+          <div class="menu">
+            <div class="pattern pattern1">
+              <div class="minimize">
+                <img title="minimize" src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/minimize.svg" />
+              </div>
+              <div class="close">
+                <img title="close" src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/close.svg" />
+              </div>
+            </div>
+            <div class="pattern pattern2">
+              <div class="maximize">
+                <img title="maximize" src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/image/maximize.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+        </div>
+        <!-- max pic -->
+      <div id='magnify' class="mask hide">
+        <div class="content">
+        </div>
+      </div>
+    </div>
+
+  <link href="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/css/monokai_sublime.min.css" rel="stylesheet">
+  <script src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/js/highlight.min.js"></script>
+  <script type="text/javascript" src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/js/paging.js"></script>
+  <script src="/opt/anaconda3/envs/en_conda1/lib/python3.8/site-packages/airtest/report/js/report.js"></script>
+</body>
+</html>

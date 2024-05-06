@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85); min-height: 17.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 14.0px 'PingFang SC'; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;head&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;</span><span class="s2">日志聚合页面</span><span class="s1">&lt;/title&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* </span><span class="s2">你可以在这里添加一些样式</span><span class="s1"> */ <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;/head&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;body&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1">&lt;textarea id="logTextarea" rows="10" cols="50" placeholder="</span><span class="s2">粘贴你的日志内容（每行一个</span><span class="s1">JSON</span><span class="s2">对象）</span><span class="s1">"&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{"tag": "function", ...} <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">{"tag": "info", ...} <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;!-- </span><span class="s2">更多的日志项</span><span class="s1"> --&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;/textarea&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1">&lt;button onclick="parseLogs()"&gt;</span><span class="s2">解析日志</span><span class="s1">&lt;/button&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1">&lt;div id="resultDiv" style="margin-top: 20px;"&gt;&lt;/div&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1">&lt;script&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">function parseLogs() { <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const logsText = document.getElementById('logTextarea').value; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const logsArray = logsText.split('\n').filter(line =&gt; line.trim() !== '').map(JSON.parse); <span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let resultHtml = '&lt;ul&gt;'; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>logsArray.forEach(log =&gt; { <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (log.tag === 'function') { <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>resultHtml += `&lt;li&gt;&lt;b&gt;Function Call:&lt;/b&gt; ${log.data.name} (${log.data.call_args.text})&lt;br&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;i&gt;Time:&lt;/i&gt; ${new Date(log.time * 1000).toISOString().slice(11, 19)}&lt;br&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;i&gt;Error:&lt;/i&gt; ${log.data.traceback.split('\n').slice(0, 3).join('&lt;br&gt;')}&lt;br&gt;&lt;/li&gt;`; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else if (log.tag === 'info') { <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>resultHtml += `&lt;li&gt;&lt;b&gt;Info:&lt;/b&gt; ${log.data.name}&lt;br&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;i&gt;Error:&lt;/i&gt; ${log.data.traceback.split('\n').slice(0, 3).join('&lt;br&gt;')}&lt;br&gt;&lt;/li&gt;`; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}); <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>resultHtml += '&lt;/ul&gt;'; <span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('resultDiv').innerHTML = resultHtml; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">} <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;/script&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1">&lt;/body&gt; <span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
